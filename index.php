@@ -60,7 +60,7 @@ button:hover {
 }
 
 img.avatar {
-  width: 40%;
+  width: 70%;
   border-radius: 50%;
 }
 
@@ -87,11 +87,11 @@ span.psw {
 </head>
 <body>
 
-<h2 style="text-align:center;">Meat Inventory System Login</h2>
+<h2 style="text-align:center;">Meat Inventory System Logins</h2>
 
 <form action="process_login.php" method="post">
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <img src="img/loginlogo.jpg" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">

@@ -4,22 +4,26 @@ include("connection.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $meat_id = $_POST["meat_new_id"];
-    $meat_price = $_POST["meat_price"];
-    $meat_parts = $_POST["meat_parts"];
-    $meat_type = $_POST["meat_type"];
-    $purchased_location = $_POST["purchased_location"];
-    $purchased_date = $_POST["purchased_date"];
-    $supplier_id = $_POST["supplier"];
-    $meat_disposed = $_POST["meat_disposed"];
+    $price = $_POST["price"];
+    $category = $_POST["category"];
+    $name = $_POST["name"];
+    $weight = $_POST["weight"];
+    $received_date = $_POST["received_date"];
+    $batch_number = $_POST["batch_number"];
+    $expiry_date = $_POST["expiry_date"];
+    $supplier = $_POST["supplier"];
 
-    $sql_update = "UPDATE meat_db SET
-                    meat_price='$meat_price',
-                    meat_parts='$meat_parts',
-                    meat_type='$meat_type',
-                    purchased_location='$purchased_location',
-                    purchased_date='$purchased_date',
-                    supplier_id='$supplier_id',
-                    meat_disposed='$meat_disposed'
+
+    $sql_update = "UPDATE products SET
+                    name='$name',
+                    category='$category',
+                    weight='$weight',
+                    price='$price',
+                    expiry_date='$expiry_date',
+                    batch_number='$batch_number',
+                    received_date='$received_date',
+                    supplier='$supplier'
+
                     WHERE id='$meat_id'";
 
     if ($connection->query($sql_update) === TRUE) {

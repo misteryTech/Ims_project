@@ -30,7 +30,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Meat</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Meat Details</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
@@ -51,14 +51,16 @@
                         if ($result->num_rows == 1) {
                             $row = $result->fetch_assoc();
 
-                            $meat_price = $row["meat_price"];
                             $meat_new_id = $row["id"];
-                            $meat_type = $row["meat_type"];
-                            $meat_parts = $row["meat_parts"];
-                            $purchased_location = $row["purchased_location"];
-                            $purchased_date = $row["purchased_date"];
-                            $supplier_id = $row["supplier_id"];
-                            $meat_disposed = $row["meat_disposed"];
+                            $name = $row["name"];
+
+                            $category = $row["category"];
+                            $weight = $row["weight"];
+                            $price = $row["price"];
+                            $expiry_date = $row["expiry_date"];
+                            $batch_number = $row["batch_number"];
+                            $received_date = $row["received_date"];
+                            $supplier_id = $row["supplier"];
 
                         } else {
                             echo "User not found";
@@ -89,29 +91,33 @@
                                         <input type="text" value="<?php echo $meat_new_id ?>" class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="ID" disabled>
                                 </div>
+
+                                <div class="form-group">
+                                <label> Meat Name </label>
+                                    <input type="text" name="name" value="<?php echo $name ?> "class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Name">
+
+                                </div>
+
+
                                 <div class="form-group">
                                 <label> Meat Price </label>
-                                    <input type="number" name="meat_price" value="<?php echo $meat_price ?>" class="form-control form-control-user" id="exampleInputEmail" >
+                                    <input type="number" name="price" value="<?php echo $price ?>" class="form-control form-control-user" id="exampleInputEmail" >
 
 
 
                                 </div>
                                 <div class="form-group">
                                 <label> Meat Type </label>
-                                    <input type="text" name="meat_type" value="<?php echo $meat_type ?> "class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="text" name="category" value="<?php echo $category ?> "class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="Type">
 
                                 </div>
-                                <div class="form-group">
-                                <label> Meat Parts </label>
-                                    <input type="text" name="meat_parts" value="<?php echo $meat_parts ?> "class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Parts">
 
-                                </div>
 
                                 <div class="form-group">
-                                <label> Purchased Location </label>
-                                    <input type="text" name="purchased_location" value="<?php echo $purchased_location ?> "class="form-control form-control-user" id="exampleInputEmail"
+                                <label> Weight </label>
+                                    <input type="text" name="weight" value="<?php echo $weight ?> "class="form-control form-control-user" id="exampleInputEmail"
                                     required>
 
 
@@ -119,9 +125,20 @@
 
                                 <div class="form-group">
                                 <label> Purchased Date </label>
-                                <input type="date" name="purchased_date" value="<?php echo $purchased_date; ?>" class="form-control form-control-user">
+                                <input type="date" name="received_date" value="<?php echo $received_date; ?>" class="form-control form-control-user">
 
 
+                                </div>
+
+                                <div class="form-group">
+                                <label> Batch Number </label>
+                                <input type="number" name="batch_number" value="<?php echo $batch_number; ?>" class="form-control form-control-user">
+                                </div>
+
+
+                                <div class="form-group">
+                                <label> Expiry Date </label>
+                                <input type="date" name="expiry_date" value="<?php echo $expiry_date; ?>" class="form-control form-control-user">
                                 </div>
 
 
@@ -146,12 +163,6 @@
                                         </select>
                                     </div>
 
-                                <div class="form-group">
-                                <label> Disposed Date </label>
-
-
-                                        <input type="date" name="purchased_date" value="<?php echo $meat_disposed; ?>" class="form-control form-control-user">
-                                </div>
 
 
 
